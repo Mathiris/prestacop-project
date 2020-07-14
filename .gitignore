@@ -1,0 +1,3 @@
+/scala-jobs/**/target/
+/scala-jobs/**/project/project/
+/scala-jobs/**/.idea/
