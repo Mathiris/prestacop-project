@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Stack for Firehose DeliveryStream to S3 Destination with Glue Catalog mapping.
+Parameters:
+    kinesisStreamARN :
+        Type : String
+Resources :
+    DroneMessageStorageFirehose: 
+        Type: AWS::KinesisFirehose::DeliveryStream
+        Properties: 
+            DeliveryStreamName: drone-message-storage-firehose
+            DeliveryStreamType: KinesisStreamAsSource
+            KinesisStreamSourceConfiguration: 
+                KinesisStreamARN: !Ref kinesisStreamARN
+                RoleARN: arn:aws:iam::299141443499:role/service-role/KinesisFirehoseServiceRole-drone-message-eu-west-3-1594688269119
+            ExtendedS3DestinationConfiguration: 
+                BucketARN: arn:aws:s3:::prestacop-drone-message
+                RoleARN: arn:aws:iam::299141443499:role/service-role/KinesisFirehoseServiceRole-drone-message-eu-west-3-1594688269119
+                Prefix: records/log_year=!{timestamp:yyyy}/
+                ErrorOutputPrefix: errors/
+                DataFormatConversionConfiguration:
+                  Enabled: true
+                  SchemaConfiguration:
+                    RoleARN: arn:aws:iam::299141443499:role/service-role/KinesisFirehoseServiceRole-drone-message-eu-west-3-1594688269119
+                    DatabaseName: prestacop
+                    TableName: records
+                    Region: eu-west-3
+                    VersionId: LATEST
+                  InputFormatConfiguration:
+                    Deserializer:
+                      OpenXJsonSerDe: {}
+                  OutputFormatConfiguration:
+                    Serializer:
+                      ParquetSerDe: {}

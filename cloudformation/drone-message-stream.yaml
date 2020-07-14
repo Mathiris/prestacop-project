@@ -1,0 +1,8 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Stack for a Data Stream about drone messages and csv.
+Resources:
+    SparkDroneMessageStream: 
+        Type: AWS::Kinesis::Stream 
+        Properties: 
+            Name: spark-drone-message-stream-2
+            ShardCount: 3
