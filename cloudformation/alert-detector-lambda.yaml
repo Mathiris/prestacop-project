@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Lambda function to filter alert messages.
+Resources:
+  LambdaFirehoseAlertFilter: 
+    Type: AWS::Lambda::Function
+    Properties: 
+      FunctionName: lambda-firehose-alert-filter
+      Handler: lambdaFunction.AlertFilter::handleRequest
+      Role: arn:aws:iam::299141443499:role/alert-detector-lambda-role
+      Code: 
+        S3Bucket: prestacop-scripts
+        S3Key: lambdaFunction-assembly-0.1.jar
+      Runtime: java8
+      Timeout: 60
+      MemorySize: 256

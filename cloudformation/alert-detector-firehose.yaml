@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Stack for Firehose DeliveryStream with transformation lambda to filter alerts.
+Parameters:
+    lambdaArn:
+        Type: String
+    kinesisStreamARN :
+        Type : String
+Resources :
+    AlertDetectorFirehose: 
+        Type: AWS::KinesisFirehose::DeliveryStream
+        Properties: 
+            DeliveryStreamName: alert-detector-firehose
+            DeliveryStreamType: KinesisStreamAsSource
+            KinesisStreamSourceConfiguration:
+                KinesisStreamARN: !Ref kinesisStreamARN
+                RoleARN: arn:aws:iam::299141443499:role/service-role/KinesisFirehoseServiceRole-alert-detecto-eu-west-3-1594683569533
+            ExtendedS3DestinationConfiguration:
+                BucketARN: arn:aws:s3:::prestacop-alerts
+                RoleARN: arn:aws:iam::299141443499:role/service-role/KinesisFirehoseServiceRole-alert-detecto-eu-west-3-1594683569533
+                ProcessingConfiguration:
+                    Enabled: 'true'
+                    Processors:
+                        - Parameters:
+                              - ParameterName: LambdaArn
+                                ParameterValue: !Ref lambdaArn 
+                          Type: Lambda 
