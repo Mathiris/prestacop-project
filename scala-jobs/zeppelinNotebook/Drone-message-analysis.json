@@ -1,0 +1,275 @@
+﻿{
+    "paragraphs": [
+        {
+            "text": "import spark.implicits._",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:29+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594691023180_165509115",
+            "id": "20200714-014343_1172118289",
+            "dateCreated": "2020-07-14T01:43:43+0000",
+            "dateStarted": "2020-07-14T08:16:29+0000",
+            "dateFinished": "2020-07-14T08:16:30+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "focus": true,
+            "$$hashKey": "object:4414"
+        },
+        {
+            "text": "spark.sql(\"use prestacop\")",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:46+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594714569088_386497408",
+            "id": "20200714-081609_1076731105",
+            "dateCreated": "2020-07-14T08:16:09+0000",
+            "dateStarted": "2020-07-14T08:16:30+0000",
+            "dateFinished": "2020-07-14T08:16:30+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4415"
+        },
+        {
+            "text": "spark.sql(\"select * from records limit 10\").show()",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:30+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594714203345_-138993667",
+            "id": "20200714-081003_2094468017",
+            "dateCreated": "2020-07-14T08:10:03+0000",
+            "dateStarted": "2020-07-14T08:16:30+0000",
+            "dateFinished": "2020-07-14T08:16:31+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4416"
+        },
+        {
+            "text": "spark.sql(\"select violation_code, count(*) as count from records where is_violation = true group by violation_code order by count desc limit 10\").show()",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:32+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594694061909_-730404659",
+            "id": "20200714-023421_1803339442",
+            "dateCreated": "2020-07-14T02:34:21+0000",
+            "dateStarted": "2020-07-14T08:16:32+0000",
+            "dateFinished": "2020-07-14T08:16:34+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4417"
+        },
+        {
+            "text": "spark.sql(\"select car_maker, count(*) as count from records where is_violation = true group by car_maker order by count desc limit 10\").show()\n",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:34+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594694539632_-1480590198",
+            "id": "20200714-024219_1466482687",
+            "dateCreated": "2020-07-14T02:42:19+0000",
+            "dateStarted": "2020-07-14T08:16:34+0000",
+            "dateFinished": "2020-07-14T08:16:35+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4418"
+        },
+        {
+            "text": "spark.sql(\"select date_format(timestamp,'HH') as hour, count(1) as count from records where is_violation = true group by 1 order by hour asc\").show()",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:35+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594694084561_804101512",
+            "id": "20200714-023444_976925260",
+            "dateCreated": "2020-07-14T02:34:44+0000",
+            "dateStarted": "2020-07-14T08:16:35+0000",
+            "dateFinished": "2020-07-14T08:16:37+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4419"
+        },
+        {
+            "text": "spark.sql(\"select date_format(timestamp,'u') as weekday, count(1) as count from records where is_violation = true group by 1 order by count desc\").show()",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:37+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594694770980_1623294432",
+            "id": "20200714-024610_2105436412",
+            "dateCreated": "2020-07-14T02:46:10+0000",
+            "dateStarted": "2020-07-14T08:16:37+0000",
+            "dateFinished": "2020-07-14T08:16:38+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4420"
+        },
+        {
+            "text": "",
+            "user": "anonymous",
+            "dateUpdated": "2020-07-14T08:16:38+0000",
+            "config": {
+                "colWidth": 12,
+                "fontSize": 9,
+                "enabled": true,
+                "results": {},
+                "editorSetting": {
+                    "language": "scala",
+                    "editOnDblClick": false,
+                    "completionKey": "TAB",
+                    "completionSupport": true
+                },
+                "editorMode": "ace/mode/scala"
+            },
+            "settings": {
+                "params": {},
+                "forms": {}
+            },
+            "apps": [],
+            "jobName": "paragraph_1594695112615_411283405",
+            "id": "20200714-025152_377042946",
+            "dateCreated": "2020-07-14T02:51:52+0000",
+            "dateStarted": "2020-07-14T02:57:33+0000",
+            "dateFinished": "2020-07-14T02:57:43+0000",
+            "status": "FINISHED",
+            "errorMessage": "",
+            "progressUpdateIntervalMs": 500,
+            "$$hashKey": "object:4421"
+        }
+    ],
+    "name": "Drone-message-analysis",
+    "id": "2FCF68SZ3",
+    "noteParams": {},
+    "noteForms": {},
+    "angularObjects": {
+        "md:shared_process": [],
+        "spark:shared_process": []
+    },
+    "config": {
+        "isZeppelinNotebookCronEnable": false,
+        "looknfeel": "default",
+        "personalizedMode": "false"
+    },
+    "info": {}
+}
